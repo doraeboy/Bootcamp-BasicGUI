@@ -49,7 +49,7 @@ def sumdata():
 
 GUI = Tk()
 GUI.geometry('500x500')
-GUI.title('Doraeboy Program')
+GUI.title('Doraeboy Program V.0.0.1')
 
 file = PhotoImage(file='gold.png')
 IMG = Label(GUI,image=file,text='')
@@ -72,20 +72,6 @@ def Calculate(event=None): # None คือ ถ้าไม่มีการก
 	print('จำนวน', float(quantity) * price)
 	cal = float(quantity) * price
 
-	# EN DATE
-	# stamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-	# Thai DATE
-	# stamp = datetime.now()
-	# stamp = stamp.replace(year=stamp.year+543)
-	# stamp = stamp.strftime('%Y-%m-%d %H:%M:%S')
-
-	# ฟังก์ชั่นบันทึกข้อมูลลงไฟล์ txt
-	# filename = 'data.txt'
-	# with open(filename,'a',encoding='utf-8') as file:
-	# 	file.write('\n'+'วัน-เวลา {} ทองคำ: {} สลึง รวมเป็นเงิน {:,.2f} บาท'.format(stamp,quantity,cal))
-
-	# writetext(quantity,cal)
 	data = [timestamp(), quantity, cal]
 	writecsv(data)
 
@@ -112,6 +98,7 @@ def SummaryData(event):
 
 #ตรวจสอบการกดปุ่ม
 GUI.bind('<F1>',SummaryData)
+GUI.bind('<F2>',SummaryData)
 
 E1.focus() # ให้ cursor ไปยังตำแหน่งของ E1
 GUI.mainloop()
